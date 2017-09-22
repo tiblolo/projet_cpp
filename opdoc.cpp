@@ -3,36 +3,40 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include<cstdio>
+string ouvrir_fichier(string nom);
 
 
 int main(){
+	 
+	ouvrir_fichier("text.txt");
+return 0;}
+
+
+
+string ouvrir_fichier(string name){
 
 string phrase;
-int nbligne;
+int nbligne=0;
 int i;
-
-	ifstream fichier("test.vhd", ios::in); 
+		ifstream fichier("test.txt", ios::in);
 		if (fichier)
 			{
+		
 
 			cout<<" le fichier est bien ouvert"<< endl;
 			while(std::getline(fichier, phrase)){
 			nbligne++;
-			cout << phrase << endl;}
+			cout << phrase << endl;
 			cout<< nbligne<<endl;
+			}
+			
 			getline(fichier, phrase);// lit la phrase et la met dans le string phrase
-			
-			// affiche
-			
-			//passage a la ligne + gere le caractere
-			
-
 			fichier.close();
-			
+			return phrase;
 			} 
 		else cout<< "impossible d'ouvrir le fichier"<<endl;
-return 0;
+
 }
 
 
